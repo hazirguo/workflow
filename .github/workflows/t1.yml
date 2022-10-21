@@ -4,9 +4,7 @@ on:
     branches: [ master ]
   schedule:
     # 定时任务，在每天的16点执行任务/01点/02点
-    - cron: '55 15 * * *'
-    - cron: '55 1 * * *'
-    - cron: '55 2 * * *'
+    - cron: '54 15 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone script
-        env: 
-          SIP: ${{ secrets.SIP }}
-        run: echo ${SIP}; wget http://49.233.24.188/assets/dd_client2.py -O /tmp/dd_client2.py
+        run: wget http://49.233.24.188/assets/dd_client2.py -O /tmp/dd_client2.py
       - name: execute script
         run: python3 /tmp/dd_client2.py 1 
